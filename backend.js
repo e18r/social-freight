@@ -135,10 +135,7 @@ app.get('/tweets', (req, res) => {
     headers: headers
   })
     .then(response => response.json())
-    .then(json => {
-      console.log(json)
-      res.json(json)
-    })
+    .then(json => res.json(json))
 })
 
 app.get('/disconnect', (req, res) => {
@@ -148,6 +145,31 @@ app.get('/disconnect', (req, res) => {
   access_data = {}
   res.json({user_id: user_id})
   
+})
+
+app.get('/update', (req, res) => {
+
+  const status = req.query.status
+
+  const request_data = {
+    url: `https://api.twitter.com/1.1/statuses/update.json?status=${status}`,
+    method: 'POST'
+  }
+
+  const token = {
+    key: access_data.oauth_token,
+    secret: access_data.oauth_token_secret
+  }
+
+  const headers = oauth.toHeader(oauth.authorize(request_data, token))
+
+  fetch(request_data.url, {
+    method: request_data.method,
+    headers: headers
+  })
+    .then(response => response.json())
+    .then(json => res.json(json))
+
 })
 
 const port = 3000
