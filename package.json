@@ -4,8 +4,9 @@
   "description": "DexFreight Technical Assessment",
   "main": "backend.js",
   "scripts": {
+    "backend": "node backend.js",
+    "frontend": "webpack-dev-server",
     "test": "npm test",
-    "run": "node backend.js"
   },
   "repository": {
     "type": "git",
@@ -18,10 +19,22 @@
   },
   "homepage": "https://github.com/e18r/social-freight#readme",
   "dependencies": {
+    "babel-runtime": "^6.26.0",
     "express": "^4.17.1",
     "node-fetch": "^2.6.0",
     "oauth-1.0a": "^2.2.6",
     "react": "^16.8.6",
-    "webpack": "^4.35.3"
+    "react-dom": "^16.8.6"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-1": "^6.24.1",
+    "webpack": "^4.35.3",
+    "webpack-cli": "^3.3.5",
+    "webpack-dev-server": "^3.7.2"
   }
 }
