@@ -173,4 +173,6 @@ app.get('/update', (req, res) => {
 })
 
 const port = 3000
-app.listen(port, () => console.log(`Listening on port ${port}`))
+app.listen(port, () => console.log(`Please direct your browser to the following URL:
+
+http://127.0.0.1:${port}`))

@@ -1,0 +1,27 @@
+{
+  "name": "social-freight",
+  "version": "1.0.0",
+  "description": "DexFreight Technical Assessment",
+  "main": "backend.js",
+  "scripts": {
+    "test": "npm test",
+    "run": "node backend.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/e18r/social-freight.git"
+  },
+  "author": "Emilio Silva Schlenker <e18r@disroot.org>",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/e18r/social-freight/issues"
+  },
+  "homepage": "https://github.com/e18r/social-freight#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.0",
+    "oauth-1.0a": "^2.2.6",
+    "react": "^16.8.6",
+    "webpack": "^4.35.3"
+  }
+}
