@@ -17,7 +17,7 @@ An app where you can tweet about DexFreight to your heart's content
 
 ### Usage ###
 1. Run `npm start`
-2. Point your browser to [http://127.0.0.1:8080]
+2. Point your browser to http://127.0.0.1:8080
 3. Enjoy!
 
 ### Testing ###
