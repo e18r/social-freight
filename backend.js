@@ -42,8 +42,8 @@ const deserialize = string => {
 }
 
 const url = 'mongodb://localhost:27017'
-const dbName = 'testdb3'
-const collName = 'testcol3'
+const dbName = 'social_freight'
+const collName = 'user_data'
 
 const write = (name, data) => {
   mongo.connect(url, (e, client) => {
@@ -90,7 +90,6 @@ const clear = () => {
     })
     .catch(e => console.log(e))
 }
-clear()
 
 const error_403 = {
   error: {
@@ -298,6 +297,7 @@ app.get('/update', async (req, res) => {
 
 if(process.argv.length > 2 && process.argv[2] == 'run') {
   app.listen(3000, () => console.log(`Back end running at http://127.0.0.1:3000`))
+  clear()
 }
 
 module.exports = { deserialize }

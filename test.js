@@ -23,7 +23,7 @@ describe('Backend', () => {
     });
   });
 
-  describe('/oauth_request', () => {
+  describe('/oauth_request', async () => {
     it('should return a valid auth request URL', async () => {
       const response = await fetch('http://127.0.0.1:3000/oauth_request', {
         method: 'GET'

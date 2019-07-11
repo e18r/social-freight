@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { TwitterLoginButton } from 'react-social-login-buttons';
+import { TwitterLoginButton } from 'react-social-login-buttons'; // eslint-disable-line no-unused-vars
 
 const styles = {
   app: {
@@ -8,7 +8,7 @@ const styles = {
     fontFamily: 'helvetica, arial, sans-serif',
     backgroundColor: '#E8F5FD',
     width: '100%',
-    borderRadius: 10
+    borderRadius: 10,
   },
   button: {
     backgroundColor: '#4AB3F4',
@@ -16,8 +16,8 @@ const styles = {
     borderRadius: '20px',
     color: 'white',
     padding: '10px 15px',
-    fontWeight: 'bold'
-  }
+    fontWeight: 'bold',
+  },
 };
 
 export class App extends React.Component {
@@ -40,14 +40,12 @@ export class App extends React.Component {
   componentDidMount = () => {
     this.checkLoggedIn();
     this.refreshInterval = setInterval(this.refresh, 1100);
+    this.setState({ ready: true });
   }
 
   componentDidUpdate = (prevProps, prevState) => {
     if(!prevState.loggedIn) {
       this.checkLoggedIn();
-    }
-    if(!prevState.ready) {
-      this.setState({ ready: true });
     }
   }
 
@@ -80,7 +78,7 @@ export class App extends React.Component {
                           name: json.name,
                           screenName: json.screen_name,
                           profileImageUrl: json.profile_image_url,
-                          biggerImageUrl
+                          biggerImageUrl,
                         });
         }
       }
@@ -164,8 +162,9 @@ export class App extends React.Component {
       const endpoint = 'http://127.0.0.1:3000/update';
       const url = `${endpoint}?${query}`;
       const response = await fetch(url, { method: 'GET' });
-      await response.json();
-      this.showTweets();
+      const json = await response.json();
+      console.log(json);
+      this.setState({ newTweet: '' });
     }
     catch (e) {
       console.log(e);
@@ -173,7 +172,6 @@ export class App extends React.Component {
   }
   
   render() {
-    console.log(this.state);
     const {
       ready,
       loggedIn,
@@ -212,14 +210,14 @@ export class App extends React.Component {
                       width: '500px',
                       borderColor: 'lightBlue',
                       borderStyle: 'solid',
-                      borderRadius: '10px'
+                      borderRadius: '10px',
                     }}
                   />
                 </div>
                 <div style={{
                   width: '500px',
                   textAlign: 'right',
-                  paddingTop: 10
+                  paddingTop: 10,
                 }}>
                   <button style={styles.button} onClick={this.update}>
                     Tweet
@@ -247,7 +245,7 @@ export class App extends React.Component {
                   backgroundColor: 'white',
                   borderBottom: 1,
                   borderBottomStyle: 'solid',
-                  borderBottomColor: '#EEEEEE'
+                  borderBottomColor: '#EEEEEE',
                 }}>
                   <div>
                     <img src={profileImageUrl} style={{borderRadius: '50%'}} />
